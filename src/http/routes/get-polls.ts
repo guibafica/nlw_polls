@@ -15,8 +15,20 @@ export async function getPoll(app: FastifyInstance) {
       where: {
         id: pollId,
       },
+      include: {
+        options: {
+          select: {
+            id: true,
+            title: true,
+          },
+        },
+      },
     });
 
-    return reply.send(poll);
+    if (!poll) {
+      return reply.status(400).send({ message: "Poll not found!" });
+    }
+
+    return reply.send({ poll });
   });
 }
