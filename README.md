@@ -28,6 +28,12 @@ cd nlw_polls
 # install dependencies
 npm install
 
+# run docker
+docker compose up -d
+
+# run migrations
+npx prisma migrate dev
+
 # run the project
 npm run dev
 ```
