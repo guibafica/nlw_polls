@@ -8,9 +8,9 @@ Expert Polls is a Backend application for creating surveys, with the differentia
 
 ## Libs
 
-- Fastify;
-- Prisma;
-- Zod.
+- Fastify: a framework for Node.js. It is known for its processing speed and low overhead;
+- Prisma: database library for Node.js and TypeScript, which significantly simplifies interaction with the database;
+- Zod: a data validation library.
 
 # How to run the project
 
