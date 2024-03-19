@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { optional, z } from "zod";
+import { z } from "zod";
 
 import { prisma } from "../../lib/prisma";
 import { redis } from "../../lib/redis";
