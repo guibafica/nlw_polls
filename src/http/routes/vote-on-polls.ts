@@ -42,7 +42,16 @@ export async function voteOnPoll(app: FastifyInstance) {
           },
         });
 
-        await redis.zincrby(pollId, -1, userPreviousVoteOnPoll.pollOptionId);
+        const votes = await redis.zincrby(
+          pollId,
+          -1,
+          userPreviousVoteOnPoll.pollOptionId
+        );
+
+        voting.publish(pollId, {
+          pollOptionId: userPreviousVoteOnPoll.pollOptionId,
+          votes: Number(votes),
+        });
       } else if (userPreviousVoteOnPoll) {
         return reply
           .status(400)
